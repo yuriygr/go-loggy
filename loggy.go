@@ -6,7 +6,6 @@ import (
 )
 
 var (
-	// Black - its black!
 	Black   = color("\033[1;30m%s\033[0m")
 	Red     = color("\033[1;31m%s\033[0m")
 	Green   = color("\033[1;32m%s\033[0m")
@@ -16,12 +15,12 @@ var (
 	Teal    = color("\033[1;36m%s\033[0m")
 	White   = color("\033[1;37m%s\033[0m")
 
-	Success = color("\033[1;32m%s\033[0m")
-	Info    = color("\033[1;34m%s\033[0m")
-	Notice  = color("\033[1;36m%s\033[0m")
-	Warning = color("\033[1;33m%s\033[0m")
-	Error   = color("\033[1;31m%s\033[0m")
-	Debug   = color("\033[0;36m%s\033[0m")
+	success = color("\033[1;32m%s\033[0m")
+	info    = color("\033[1;34m%s\033[0m")
+	notice  = color("\033[1;36m%s\033[0m")
+	warning = color("\033[1;33m%s\033[0m")
+	error   = color("\033[1;31m%s\033[0m")
+	debug   = color("\033[0;36m%s\033[0m")
 )
 
 func color(colorString string) func(...interface{}) string {
@@ -57,25 +56,30 @@ func (l *Logger) Writeln(message interface{}) {
 
 // Success - Запись в лог
 func (l *Logger) Success(message interface{}) {
-	l.Writeln(Success(message))
+	l.Writeln(success(message))
 }
 
 // Info - Запись в лог
 func (l *Logger) Info(message interface{}) {
-	l.Writeln(Info(message))
+	l.Writeln(info(message))
 }
 
 // Notice - Запись в лог
 func (l *Logger) Notice(message interface{}) {
-	l.Writeln(Notice(message))
+	l.Writeln(notice(message))
 }
 
 // Warning - Запись в лог
 func (l *Logger) Warning(message interface{}) {
-	l.Writeln(Warning(message))
+	l.Writeln(warning(message))
 }
 
 // Error - Запись в лог
 func (l *Logger) Error(message interface{}) {
-	l.Writeln(Error(message))
+	l.Writeln(error(message))
+}
+
+// Debug - Запись в лог
+func (l *Logger) Debug(message interface{}) {
+	l.Writeln(debug(message))
 }
